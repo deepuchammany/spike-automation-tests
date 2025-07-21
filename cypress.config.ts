@@ -9,7 +9,7 @@ export default defineConfig({
     viewportWidth: 1280,  // Width for the viewport
     viewportHeight: 720,  // Height for the viewport
     retries: {
-      runMode: 2,
+      runMode: 0,
       openMode: 0
     }
   }
