@@ -8,8 +8,8 @@ Welcome! This test suite covers both UI and API flows for https://automationexer
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
-cd new-cypress-test
+git clone https://github.com/deepuchammany/spike-automation-tests
+cd spike-automation-tests
 ```
 
 ### 2. Install dependencies

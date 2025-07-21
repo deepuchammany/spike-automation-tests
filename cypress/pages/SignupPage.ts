@@ -1,10 +1,13 @@
+// Page Object for Signup and Account Creation flows
 class SignupPage {
+  // Fills signup form and submits
   register(username: string, email: string) {
     cy.get('[data-qa="signup-name"]', { timeout: 10000 }).should('be.visible').type(username)
     cy.get('[data-qa="signup-email"]').should('be.visible').type(email)
     cy.get('[data-qa="signup-button"]').should('be.visible').click()
   }
 
+  // Fills account details form and completes registration
   fillAccountDetails(password: string) {
     cy.get('#id_gender1').check({ force: true })
     cy.get('#password').type(password)

@@ -1,15 +1,21 @@
+// Page Object for Cart interactions
 class CartPage {
+  // Clicks 'View Cart' button
   clickViewCart() {
     cy.contains('View Cart').click({ force: true })
   }
 
+  // Clicks 'Continue Shopping' button
   clickContinueShopping() {
     cy.contains('Continue Shopping').click({ force: true })
   }
 
+  // Clicks 'Proceed To Checkout' button
   proceedToCheckout() {
     cy.contains('Proceed To Checkout').click({ force: true })
   }
+
+  // Handles checkout modal and clicks Register/Login link
   clickRegisterLogin() {
     // If checkout modal exists and is visible, close it
     cy.get('body').then(($body) => {
@@ -29,7 +35,6 @@ class CartPage {
     // Click the Signup/Login link
     cy.contains('Signup / Login').click({ force: true });
   }
-
 }
 
 export default CartPage

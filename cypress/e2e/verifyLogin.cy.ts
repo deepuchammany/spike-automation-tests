@@ -1,5 +1,13 @@
+// API Tests - verifyLogin and related APIs
+// This test covers the full lifecycle of a user account using the Automation Exercise API:
+// 1. Account creation
+// 2. Login verification
+// 3. Fetching user details by email
+// 4. Account deletion
+
 describe('API Tests - verifyLogin and related APIs', () => {
   it('should create account, verify login, get user details and delete account', () => {
+    // Generate unique credentials for test isolation
     const timestamp = Date.now();
     const email = `testuser_${timestamp}@mail.com`;
     const password = 'test1234';
@@ -7,7 +15,7 @@ describe('API Tests - verifyLogin and related APIs', () => {
 
     cy.log(`📧 Generated email: ${email}`);
 
-    // Create Account
+    // Step 1: Create Account via API
     cy.request({
       method: 'POST',
       url: 'https://automationexercise.com/api/createAccount',
@@ -40,7 +48,7 @@ describe('API Tests - verifyLogin and related APIs', () => {
       expect(parsed.message).to.include('User created!');
     });
 
-    // Verify Login
+    // Step 2: Verify Login via API
     cy.request({
       method: 'POST',
       url: 'https://automationexercise.com/api/verifyLogin',
@@ -58,7 +66,7 @@ describe('API Tests - verifyLogin and related APIs', () => {
       expect(parsed.message).to.include('User exists');
     });
 
-    // Get User Detail by Email
+    // Step 3: Get User Detail by Email via API
     cy.request({
       method: 'GET',
       url: `https://automationexercise.com/api/getUserDetailByEmail?email=${email}`,
@@ -75,7 +83,7 @@ describe('API Tests - verifyLogin and related APIs', () => {
       expect(parsed.user.email).to.eq(email);
     });
 
-    // Delete Account
+    // Step 4: Delete Account via API
     cy.request({
       method: 'DELETE',
       url: 'https://automationexercise.com/api/deleteAccount',
