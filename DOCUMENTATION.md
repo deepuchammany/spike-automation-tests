@@ -9,6 +9,7 @@ This Cypress test suite covers end-to-end and API testing for the [Automation Ex
 - API tests for account creation, login verification, user detail retrieval, and account deletion
 
 ---
+![Flow Chart](images/flowchart.png)
 
 ## Tests Covered
 
